@@ -17,23 +17,26 @@ body {
     margin-right: 70px;
     width: 400px;
     height: 600px;  
+    position: relative;
 }
 
 .phone {
-    position: relative;       
+    z-index: 2;
+    position: absolute;       
 }
 
-.phone img {    
+/*.phone img {    
     z-index: 1;
     position: absolute;
-}
+}*/
 
 .ss img  {
     transform: scale(1.000);
     position: absolute;
-    right: -5px;
+    right: 60px;
     top: 26px;
-    z-index: 2;
+    z-index: 1;
+    animation: phone 8s infinite;
 }
 
 .login {

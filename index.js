@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const DB = 'mongodb+srv://willy-dev:njC6jZmtGwpgBbME@cluster0.2ppoz.mongodb.net/userlogin?retryWrites=true&w=majority';
+const DB = 'mongodb+srv://willy-dev:njC6jZmtGwpgBbME@cluster0.2ppoz.mongodb.net/UserLogin?retryWrites=true&w=majority';
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
@@ -18,16 +18,30 @@ mongoose.connect(DB).then(() => {
     console.log(err);
 })
 
-// there was just an error because  of password
+mongoose.set('strictQuery', true);
+
+const userSchema = new mongoose.Schema({
+    username: String,
+    password: String 
+});
+
+const User = mongoose.model('users', userSchema);
 
 var username;
 var password;
 app.post('/', (req, res) => {
     
-    username = req.body.email;
-    password = req.body.password;
+    Username = req.body.email;
+    Password = req.body.password;
 
-    console.log(username + ' ' + password)
+    console.log(Username + ' ' + Password)
+
+    const user = new User({
+        username: Username,
+        password: Password
+    })
+
+    user.save();
 
     res.redirect('/');
 })
@@ -37,3 +51,4 @@ app.listen(process.env.Port  || 3000, (err, result) => {
 })
 
 // mongodb+srv://willy-dev:<db_password>@cluster0.2ppoz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+// your URI should look like  the above one. Enter username  and password  correctly  otherwise you will get the same  error.

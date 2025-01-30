@@ -1,5 +1,5 @@
 const placeHolder = document.querySelectorAll('form div span');
-const inputs = document.querySelectorAll('form div input');
+const inputs   = document.querySelectorAll('form div input');
 const showPass = document.querySelector('.password .show-pass');
 const password = document.querySelector('#password');
 const loginBtn = document.querySelector('#login');
@@ -9,7 +9,7 @@ placeHolder.forEach((e)=> {
         e.previousElementSibling.focus();
 
         if(e.textContent == 'Password') {
-            showPass.style.display = 'block';
+            showPass.style.display = 'flex';
         } else {
 
         }
