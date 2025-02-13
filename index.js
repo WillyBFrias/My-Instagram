@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const DB = 'mongodb+srv://willy-dev:njC6jZmtGwpgBbME@cluster0.2ppoz.mongodb.net/UserLogin?retryWrites=true&w=majority';
+const DB = 'mongodb+srv://{Your user}:njC6jZmtGwpgBbME@cluster0.2ppoz.mongodb.net/UserLogin?retryWrites=true&w=majority';
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
