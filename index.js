@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const DB = 'mongodb+srv://{Your user}:njC6jZmtGwpgBbME@cluster0.2ppoz.mongodb.net/UserLogin?retryWrites=true&w=majority';
+//const DB = 'mongodb+srv://Your Name:<db_password>@cluster0.2ppoz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
@@ -27,8 +27,8 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('users', userSchema);
 
-var username;
-var password;
+var Username;
+var Password;
 app.post('/', (req, res) => {
     
     Username = req.body.email;
@@ -50,5 +50,4 @@ app.listen(process.env.Port  || 3000, (err, result) => {
     console.log('running the server.....')
 })
 
-// mongodb+srv://willy-dev:<db_password>@cluster0.2ppoz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 // your URI should look like  the above one. Enter username  and password  correctly  otherwise you will get the same  error.
